@@ -1,0 +1,17 @@
+{
+  "name": "auth0-config",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "pull:local": "env-cmd -f .env.local node setup.js && a0deploy export -c config.json -f yaml -o .",
+    "push:local": "env-cmd -f .env.local node setup.js && a0deploy import -c config.json -i ./tenant.yaml",
+    "pull:prod": "env-cmd -f .env.prod node setup.js && a0deploy export -c config.json -f yaml -o .",
+    "push:prod": "env-cmd -f .env.prod node setup.js && a0deploy import -c config.json -i ./tenant.yaml"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "auth0-deploy-cli": "^7.15.1",
+    "env-cmd": "^10.1.0"
+  }
+}
